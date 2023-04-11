@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ready Player Me Avatar with WebSocket</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Add your 3D avatar and other scene elements here -->
+    </a-scene>
+    <script>
+      // Add your JavaScript code for WebSocket communication here
+    </script>
+  </body>
+</html>
+Add your Ready Player Me avatar to the A-Frame scene:
+html
+Copy code
+<a-assets>
+  <a-asset-item id="avatar-glb" src="https://models.readyplayer.me/643526f749d69ed90a7070a7.glb"></a-asset-item>
+</a-assets>
+<a-entity
+  id="avatar"
+  gltf-model="#avatar-glb"
+  position="0 0 -5"
+  scale="1 1 1"
+  animation-mixer
+></a-entity>
+Replace path/to/your/avatar.glb with the actual path to your downloaded GLB file.
+
+Add JavaScript code for WebSocket communication:
+javascript
+Copy code
+const ws = new WebSocket('https://avatar.waisum.repl.co');
+
+ws.addEventListener('open', (event) => {
+  console.log('Connected to WebSocket server');
+});
+
+ws.addEventListener('message', (event) => {
+  console.log('Received:', event.data);
+  // Process the received message and update your avatar's lip-syncing animation
+});
+
+ws.addEventListener('close', (event) => {
+  console.log('Disconnected from WebSocket server');
+});
+
+function sendMessage(message) {
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(message);
+  } else {
+    console.log('WebSocket is not open');
+  }
+}
+
+// You can call sendMessage('your message') in response to user input or other events
+Replace your-websocket-server-address:port with the actual address and port of your WebSocket server.
+
+Now you have an A-Frame scene with your Ready Player Me avatar and WebSocket communication. You can extend the JavaScript code to handle incoming messages and update your avatar's lip-syncing animations based on the chatbot's responses.
+
+
+
+
+waisum.chook@modelanswer.com.au
+how to create a html file
+Creating an HTML file is quite simple. You can use any text editor or code editor to write the HTML code and save it with a ".html" extension. Here's a step-by-step guide:
+
+Open a text editor or code editor of your choice. Some popular text editors include Notepad (Windows), TextEdit (Mac), and Gedit (Linux). Some popular code editors include Visual Studio Code, Sublime Text, and Atom.
+
+Write a basic HTML structure in the editor:
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Your Page Title</title>
+  </head>
+  <body>
+    <!-- Your HTML content goes here -->
+  </body>
+</html>
+You can replace "Your Page Title" with the title you want for your web page, and add your HTML content within the <body> tags.
+
+Save the file with a ".html" extension:
+
+Click "File" in the top menu of your text editor or code editor.
+Choose "Save As" or "Save" (depending on your editor).
+In the save dialog, choose a location to save the file, enter a filename with a ".html" extension (for example, "index.html" or "my_page.html"), and click "Save."
+Open the HTML file in a web browser:
+
+Locate the saved HTML file on your computer.
+Double-click the file or right-click and choose "Open with," then select your preferred web browser (e.g., Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari).
+Your web page will be displayed in the browser, and you can make further edits to the HTML file as needed. To see the updated content, save the changes in your text editor or code editor and refresh the browser.
+
+Remember that when working with A-Frame and WebSocket communication, as described in the previous answer, you'll need to serve your HTML file from a local web server or host it online to avoid issues with CORS (Cross-Origin Resource Sharing) and loading external resources.
+
+
+
+
+
